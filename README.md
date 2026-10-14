@@ -4,7 +4,7 @@
 Práctica de la UD1 (DWES). Aplicación con Node.js, Express y EJS para gestionar los talleres de unas jornadas tecnológicas. Los datos viven en memoria (se pierden al reiniciar el servidor).
 
 - **Autor:** David Delgado Alonso
-- **Chat de apoyo con la IA:** `PEGAR_AQUÍ_EL_ENLACE_AL_CHAT`
+- **Chat de apoyo con la IA:** `(https://claude.ai/share/7b64a942-080e-4ebe-99d7-63cc7c1804a0)`
 
 ## Cómo ejecutarlo
 
@@ -114,4 +114,4 @@ done
 ```
 
 ## Uso de la IA
-Se ha usado como herramienta de consulta y apoyo, y el enlace al chat está al principio de este documento. https://claude.ai/share/7b64a942-080e-4ebe-99d7-63cc7c1804a0
+Se ha usado como herramienta de consulta y apoyo, y el enlace al chat está al principio de este documento.
