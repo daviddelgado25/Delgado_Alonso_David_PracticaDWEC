@@ -1,0 +1,17 @@
+{
+  "name": "delgado_alonso_david_practicadwec",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "sripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  }
+}

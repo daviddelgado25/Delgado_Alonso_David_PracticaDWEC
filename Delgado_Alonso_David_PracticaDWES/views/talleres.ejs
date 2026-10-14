@@ -1,0 +1,63 @@
+<%- include("partials/cabecera", { titulo: "Talleres" }) %>
+
+<h2>Talleres disponibles</h2>
+
+<form class="filtros" action="/talleres" method="get">
+  <label for="categoria">Categoría
+    <input
+      id="categoria"
+      name="categoria"
+      value="<%= filtros.categoria %>"
+    >
+  </label>
+
+  <label for="nivel">Nivel
+    <select id="nivel" name="nivel">
+      <option value="">Todos</option>
+      <option value="inicial" <%= filtros.nivel === "inicial" ? "selected" : "" %>>Inicial</option>
+      <option value="intermedio" <%= filtros.nivel === "intermedio" ? "selected" : "" %>>Intermedio</option>
+      <option value="avanzado" <%= filtros.nivel === "avanzado" ? "selected" : "" %>>Avanzado</option>
+    </select>
+  </label>
+
+  <label>
+    <span>
+      <input
+        type="checkbox"
+        name="disponibles"
+        value="true"
+        <%= filtros.disponibles ? "checked" : "" %>
+      >
+      Solo disponibles
+    </span>
+  </label>
+
+  <button type="submit">Filtrar</button>
+</form>
+
+<% if (talleres.length === 0) { %>
+  <p>No se han encontrado talleres.</p>
+<% } else { %>
+  <ul class="lista-talleres">
+    <% for (const taller of talleres) { %>
+      <li class="taller">
+        <h2>
+          <a href="/talleres/<%= taller.id %>"><%= taller.titulo %></a>
+        </h2>
+
+        <p class="datos">Categoría: <%= taller.categoria %></p>
+        <p class="datos">Nivel: <%= taller.nivel %></p>
+
+        <% if (taller.plazasRestantes > 1) { %>
+          <span class="estado disponible"><%= taller.plazasRestantes %> plazas</span>
+        <% } else if (taller.plazasRestantes === 1) { %>
+          <span class="estado ultima">Última plaza</span>
+        <% } else { %>
+          <span class="estado completo">Completo</span>
+        <% } %>
+      </li>
+    <% } %>
+  </ul>
+<% } %>
+
+<%- include("partials/pie") %>

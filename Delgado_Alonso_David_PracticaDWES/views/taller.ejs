@@ -1,0 +1,58 @@
+<%- include("partials/cabecera", { titulo: taller.titulo }) %>
+
+<h2><%= taller.titulo %></h2>
+
+<p><strong>Categoría:</strong> <%= taller.categoria %></p>
+<p><strong>Nivel:</strong> <%= taller.nivel %></p>
+<p><strong>Plazas:</strong> <%= taller.plazas %></p>
+
+<% if (plazasRestantes > 1) { %>
+  <p><%= plazasRestantes %> plazas disponibles</p>
+
+  <a href="/talleres/<%= taller.id %>/inscripcion">
+    Inscribirme
+  </a>
+<%- include("partials/cabecera", { titulo: taller.titulo }) %>
+
+<section class="ficha">
+  <h1><%= taller.titulo %></h1>
+
+  <p><strong>Categoría:</strong> <%= taller.categoria %></p>
+  <p><strong>Nivel:</strong> <%= taller.nivel %></p>
+  <p><strong>Plazas:</strong> <%= taller.plazas %></p>
+
+  <% if (plazasRestantes > 1) { %>
+    <p><span class="estado disponible"><%= plazasRestantes %> plazas disponibles</span></p>
+    <a class="boton" href="/talleres/<%= taller.id %>/inscripcion">Inscribirme</a>
+
+  <% } else if (plazasRestantes === 1) { %>
+    <p><span class="estado ultima">Última plaza disponible</span></p>
+    <a class="boton" href="/talleres/<%= taller.id %>/inscripcion">Inscribirme</a>
+
+  <% } else { %>
+    <p><span class="estado completo">Completo</span></p>
+  <% } %>
+
+  <p>
+    <a class="boton secundario" href="/talleres">Volver a talleres</a>
+  </p>
+</section>
+
+<%- include("partials/pie") %>
+
+<% } else if (plazasRestantes === 1) { %>
+  <p>Última plaza disponible</p>
+
+  <a href="/talleres/<%= taller.id %>/inscripcion">
+    Inscribirme
+  </a>
+
+<% } else { %>
+  <p>Completo</p>
+<% } %>
+
+<p>
+  <a href="/talleres">Volver a talleres</a>
+</p>
+
+<%- include("partials/pie") %>

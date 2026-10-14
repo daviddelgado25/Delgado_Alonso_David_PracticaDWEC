@@ -1,0 +1,245 @@
+/* ---------- Base ---------- */
+:root {
+  --fondo: #f5f6f8;
+  --superficie: #ffffff;
+  --texto: #1f2430;
+  --texto-suave: #5b6275;
+  --borde: #d9dce3;
+  --acento: #2b4acb;
+  --acento-oscuro: #1e3699;
+  --ok: #1b7f4b;
+  --ok-fondo: #e1f4ea;
+  --aviso: #8a5a00;
+  --aviso-fondo: #fdf0d4;
+  --error: #b3261e;
+  --error-fondo: #fbe7e5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+a {
+  color: var(--acento);
+}
+
+/* ---------- Cabecera y pie (partials) ---------- */
+.cabecera {
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borde);
+}
+
+.cabecera .contenido {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cabecera a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pie {
+  text-align: center;
+  padding: 24px 16px;
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+
+/* ---------- Filtros (talleres.ejs) ---------- */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.filtros label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  gap: 4px;
+}
+
+/* ---------- Listado de talleres ---------- */
+.lista-talleres {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.taller {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.taller h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.datos {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+  margin: 4px 0;
+}
+
+/* ---------- Estados de disponibilidad ---------- */
+.estado {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.estado.disponible {
+  background: var(--ok-fondo);
+  color: var(--ok);
+}
+
+.estado.ultima {
+  background: var(--aviso-fondo);
+  color: var(--aviso);
+}
+
+.estado.completo {
+  background: var(--error-fondo);
+  color: var(--error);
+}
+
+/* ---------- Ficha del taller (taller.ejs) ---------- */
+.ficha {
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.ficha h1 {
+  margin-top: 0;
+}
+
+/* ---------- Formularios y botones ---------- */
+form .campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+input,
+select {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--borde);
+  border-radius: 6px;
+  background: #fff;
+}
+
+input:focus-visible,
+select:focus-visible,
+.boton:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--acento);
+  outline-offset: 2px;
+}
+
+.boton,
+button {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background: var(--acento);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover,
+button:hover {
+  background: var(--acento-oscuro);
+}
+
+.boton.secundario {
+  background: transparent;
+  color: var(--acento);
+  border: 1px solid var(--acento);
+}
+
+.boton.secundario:hover {
+  background: #eaeefc;
+}
+
+/* ---------- Errores (inscripcion.ejs y error.ejs) ---------- */
+.errores {
+  background: var(--error-fondo);
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 8px;
+  padding: 12px 16px 12px 32px;
+  margin-bottom: 16px;
+}
+
+.errores li + li {
+  margin-top: 4px;
+}
+
+input.invalido {
+  border-color: var(--error);
+}
+
+.mensaje-error {
+  color: var(--error);
+  font-size: 0.85rem;
+}
+
+.pagina-error {
+  text-align: center;
+  padding: 48px 16px;
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 600px) {
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
